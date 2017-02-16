@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">打卡助手</string>
+    <string name="accessibility_service">Accessibility/Accessibility Service</string>
+    <string name="accessibility_service_instructions">
+        点击第一个按钮设置辅助权限\n第二个按钮打开钉钉\n8:30-8:59自动打卡
+    </string>
+    <string name="accessibility_service_label">自动打卡</string>
+    <string name="auto_hit_card">自动完成钉钉打卡</string>
+</resources>
