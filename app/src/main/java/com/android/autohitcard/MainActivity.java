@@ -6,11 +6,13 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private static final Intent sSettingsIntent =
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 openDingDing();
             }
         });
+        final int randomTime = 30 + new Random().nextInt(10);
+        TextView textViewContent = (TextView) findViewById(R.id.textViewContent);
+        textViewContent.setText("Random At 8:" + randomTime);
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
                 int hour = calendar.get(Calendar.HOUR_OF_DAY);
                 int minute = calendar.get(Calendar.MINUTE);
-                if (8 == hour && 30 <= minute && minute <= 59) {
+                if (8 == hour && randomTime <= minute && minute <= 59) {
                     if (!todayHitCard) {
                         openDingDing();
                         todayHitCard = true;
